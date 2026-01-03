@@ -1,121 +1,195 @@
-import React from "react";
-import { Rocket, CheckCircle, Flame, Star, Coins, Vault, Send, Instagram, MessageCircle } from "lucide-react";
+import {
+  ShieldCheck,
+  Flame,
+  Stars,
+  Rocket,
+  Gamepad2,
+  Zap,
+  Send,
+  MessageCircle,
+  Instagram,
+} from "lucide-react";
 
-export default function LandingPage() {
+
+const games = [
+  { name: "Fire Kirin", icon: Flame },
+  { name: "Milky Way", icon: Stars },
+  { name: "GameVault", icon: Gamepad2 },
+  { name: "Juwa", icon: Zap },
+];
+
+
+export default function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#0b0f1a] via-[#0b0f1a] to-[#1b2350] text-gray-100 font-sans">
-      {/* HERO */}
-      <section className="max-w-7xl mx-auto px-6 py-24 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div>
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm bg-cyan-400/10 text-cyan-300 mb-6">
-            <Rocket size={16} /> Fast setup • Instant cash out
-          </span>
+    <div className="min-h-screen bg-[#0b0b12] text-white">
 
-          <h1 className="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
-            Play Smarter. <span className="bg-gradient-to-r from-cyan-400 to-violet-500 bg-clip-text text-transparent">Earn More.</span>
-          </h1>
-
-          <p className="text-gray-400 text-lg max-w-xl mb-8">
-            We help players get started instantly by providing game points, account setup assistance,
-            and exclusive bonuses for the most popular skill-based games.
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <a href="#social" className="px-6 py-3 rounded-xl font-semibold bg-gradient-to-r from-cyan-400 to-violet-500 text-black hover:opacity-90 transition">
-              Join Now
-            </a>
-            <a href="#games" className="px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition">
-              View Games
-            </a>
-          </div>
+      {/* TOP SECURITY BAR */}
+      <div className="border-b border-white/10 bg-black/40">
+        <div className="max-w-7xl mx-auto px-6 py-3 flex justify-center items-center gap-2 text-sm text-emerald-400 font-semibold">
+          <ShieldCheck size={16} />
+          Security Verified • Instant Cashouts
         </div>
+      </div>
 
-        {/* HERO CARD */}
-        <div className="bg-white/5 backdrop-blur border border-white/10 rounded-2xl p-8">
-          <ul className="space-y-5">
-            {["$10 Free Play for New Users", "$10 Bonus Per Referral", "Instant Cash Out", "20% Bonus for Regular Players"].map((item) => (
-              <li key={item} className="flex items-center gap-3">
-                <CheckCircle className="text-emerald-400" /> {item}
-              </li>
-            ))}
-          </ul>
+      {/* HERO */}
+      <section className="max-w-7xl mx-auto px-6 py-20 text-center">
+        <h1 className="text-4xl md:text-6xl font-extrabold mb-6">
+          Play Smart. Cash Out Fast.
+        </h1>
+        <p className="text-gray-400 max-w-2xl mx-auto mb-10">
+          Get instant access to Fire Kirin, Juwa, GameVault, Milky Way and more.
+          Enjoy free play, referral bonuses, and fast support.
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          <a href="#social" className="px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-400 to-violet-500 text-black font-semibold">
+            Join & Get 100% Deposit Bonus
+          </a>
+          <a href="#games" className="px-8 py-4 rounded-xl border border-white/20">
+            View Games
+          </a>
+        </div>
+      </section>
+
+      {/* TRUST STRIP (AUTHORITY BAR) */}
+      <section className="border-y border-white/10 bg-black/30">
+        <div className="max-w-7xl mx-auto px-6 py-6 flex flex-wrap justify-center gap-6 text-sm text-gray-300">
+          <span>✔ 1,000+ Active Players</span>
+          <span>✔ Instant Cashout</span>
+          <span>✔ 24/7 Live Support</span>
+          <span>✔ Verified & Encrypted Payouts</span>
         </div>
       </section>
 
       {/* GAMES */}
-      <section id="games" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Supported Games</h2>
-          <p className="text-gray-400">Points and setup assistance for top platforms</p>
-        </div>
+      <section id="games" className="max-w-7xl mx-auto px-6 py-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Supported Games
+        </h2>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-          <GameCard icon={<Flame />} title="Fire Kirin" />
-          {/* <GameCard icon={<Star />} title="Milky Way" /> */}
-          {/* <GameCard icon={<Star />} title="Orion Stars" /> */}
-          <GameCard icon={<Vault />} title="Gamevault" />
-          <GameCard icon={<Coins />} title="Juwa" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {games.map((game) => (
+            <div
+              key={game.name}
+              className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col items-center justify-center gap-4 hover:scale-105 transition"
+            >
+              <game.icon size={44} className="text-cyan-400" />
+              <p className="font-semibold text-center">{game.name}</p>
+            </div>
+          ))}
         </div>
       </section>
+
 
       {/* BONUSES */}
-      <section className="max-w-7xl mx-auto px-6 py-24">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Bonuses & Rewards</h2>
-          <p className="text-gray-400">More value for every player</p>
-        </div>
+      <section className="max-w-5xl mx-auto px-6 py-12 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10">
+          Player Bonuses
+        </h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <BonusCard title="$10 Free Play" desc="Free credits for every new user." />
-          <BonusCard title="$10 Referral Bonus" desc="Earn rewards for every referral." />
-          <BonusCard title="Instant Cash Out" desc="Fast and reliable withdrawals." />
-          <BonusCard title="20% Regular Bonus" desc="Extra bonus for loyal players." />
+        <div className="grid md:grid-cols-2 gap-6">
+          <Bonus title="$10 Free Play" text="Every new user gets $10 free play." />
+          <Bonus title="$10 Referral Bonus" text="Earn $10 for every referral." />
+          <Bonus title="20% Reload Bonus" text="Regular players receive extra credit." />
+          <Bonus title="Instant Cashout" text="Fast and reliable payouts." />
+        </div>
+      </section>
+
+      {/* TESTIMONIALS */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Trusted by Real Players
+        </h2>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          <Testimonial text="Cashout was instant and support helped me set up my account fast." name="Jason M." />
+          <Testimonial text="Very legit platform. Bonuses are added instantly." name="Amanda R." />
+          <Testimonial text="Tried many sites, this one actually pays on time." name="Luis T." />
         </div>
       </section>
 
-      {/* SOCIAL */}
-      <section id="social" className="max-w-7xl mx-auto px-6 py-24 text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-4">Join Our Community</h2>
-        <p className="text-gray-400 mb-10">Reach us instantly on your favorite platform</p>
+      {/* SINGLE FAQ SECTION */}
+      <section className="max-w-4xl mx-auto px-6 py-12">
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+          Frequently Asked Questions
+        </h2>
 
-        <div className="flex justify-center gap-6">
-          <SocialButton icon={<Send />} />
-          <SocialButton icon={<MessageCircle />} />
-          <SocialButton icon={<Instagram />} />
+        <div className="space-y-4">
+          <FAQ q="Is this platform safe?" a="Yes. All transactions are encrypted and payouts are verified manually." />
+          <FAQ q="How fast is cashout?" a="Most payouts are processed within 5–10 minutes." />
+          <FAQ q="How do I get $10 free play?" a="Join us through Telegram, Messenger, or Instagram and our support team will assist you." />
+          <FAQ q="Which games are supported?" a="Fire Kirin, Milky Way, Orion Stars, GameVault, and Juwa." />
         </div>
       </section>
+
+      {/* SOCIAL CTA */}
+      <section id="social" className="text-center py-20 border-t border-white/10">
+        <h2 className="text-3xl font-bold mb-6">Join Us Now</h2>
+
+        <div className="flex justify-center gap-4 flex-wrap">
+          <a className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition"
+             href="https://t.me/zombie2k23"
+            target="_blank"
+            rel="noopener noreferrer">
+            <Send size={18} /> Telegram
+          </a>
+
+          <a className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition"
+             href="https://m.me/bipin.neupane.660022"
+            target="_blank"
+            rel="noopener noreferrer">
+            <MessageCircle size={18} /> Messenger
+          </a>
+
+          {/* <a className="flex items-center gap-2 px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 transition">
+            <Instagram size={18} /> Instagram
+          </a> */}
+        </div>
+      </section>
+
+      {/* STICKY MOBILE CTA */}
+      <div className="fixed bottom-4 inset-x-4 z-50 sm:hidden">
+        <a
+        href="#social"
+        className="flex items-center justify-center gap-2 w-full py-4 rounded-2xl bg-gradient-to-r from-cyan-400 to-violet-500 text-black font-semibold shadow-2xl"
+        >
+          <ShieldCheck size={18} /> Join Securely & Play
+        </a>
+      </div>
 
       <footer className="border-t border-white/10 py-8 text-center text-gray-500 text-sm">
-        © 2025 Your Platform Name. All rights reserved.
+        © 2026 Game Platform. All rights reserved.
       </footer>
+
     </div>
   );
 }
 
-function GameCard({ icon, title }) {
+/* COMPONENTS */
+
+function Bonus({ title, text }) {
   return (
-    <div className="bg-white/5 border border-white/10 rounded-2xl p-6 text-center hover:-translate-y-1 transition">
-      <div className="w-12 h-12 mx-auto rounded-full bg-gradient-to-r from-cyan-400 to-violet-500 flex items-center justify-center text-black mb-4">
-        {icon}
-      </div>
-      <h3 className="font-semibold">{title}</h3>
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+      <h3 className="font-semibold text-xl mb-2">{title}</h3>
+      <p className="text-gray-400">{text}</p>
     </div>
   );
 }
 
-function BonusCard({ title, desc }) {
+function Testimonial({ text, name }) {
   return (
-    <div className="bg-gradient-to-b from-white/5 to-white/0 border border-white/10 rounded-2xl p-6">
-      <h3 className="font-semibold mb-2">{title}</h3>
-      <p className="text-gray-400 text-sm">{desc}</p>
+    <div className="bg-white/5 border border-white/10 rounded-2xl p-6">
+      <p className="text-gray-300 mb-4">“{text}”</p>
+      <p className="font-semibold">{name}</p>
     </div>
   );
 }
 
-function SocialButton({ icon }) {
+function FAQ({ q, a }) {
   return (
-    <a href="#" className="w-14 h-14 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gradient-to-r hover:from-cyan-400 hover:to-violet-500 hover:text-black transition">
-      {icon}
-    </a>
+    <details className="bg-white/5 border border-white/10 rounded-xl p-5">
+      <summary className="cursor-pointer font-semibold">{q}</summary>
+      <p className="text-gray-400 mt-3">{a}</p>
+    </details>
   );
 }

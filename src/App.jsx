@@ -88,7 +88,7 @@ export default function App() {
         </h2>
 
         <div className="grid md:grid-cols-2 gap-6">
-          <Bonus title="$10 Free Play" text="Every new user gets $10 free play." />
+          <Bonus title="100% Deposit Bonus" text="Every new user gets 100% bonus on their first deposit." />
           <Bonus title="$10 Referral Bonus" text="Earn $10 for every referral." />
           <Bonus title="20% Reload Bonus" text="Regular players receive extra credit." />
           <Bonus title="Instant Cashout" text="Fast and reliable payouts." />
@@ -118,7 +118,7 @@ export default function App() {
           <FAQ q="Is this platform safe?" a="Yes. All transactions are encrypted and payouts are verified manually." />
           <FAQ q="How fast is cashout?" a="Most payouts are processed within 5–10 minutes." />
           <FAQ q="How do I get $10 free play?" a="Join us through Telegram, Messenger, or Instagram and our support team will assist you." />
-          <FAQ q="Which games are supported?" a="Fire Kirin, Milky Way, Orion Stars, GameVault, and Juwa." />
+          <FAQ q="Which games are supported?" a="Fire Kirin, Milky Way, GameVault, and Juwa." />
         </div>
       </section>
 
